@@ -1,0 +1,27 @@
+
+Create table hospital_reception(S_no    number(5)  primary key, Pat_name   char(40),Pat_gender   char(3),Pat_age   number(3),Pat_address    varchar 40),Adm_ date     date     not null );
+Insert into hospital_reception values(1701,"yesh" ," M", 20,"jnv","12 dec 2017");
+Insert into hospital_reception values(1702,"rose" ," f", 21,"jnv","13 dec 2017");
+Insert into hospital_reception(s_no,Pat_name,Pat_gender,Pat_address,adm_date);
+values(1703,"rose" ," f", 21,"jnv","14 dec 2017");
+	   (1707,"manju" ," f", 21,"jnv","14 dec 2017");
+Create table dr_das (S_no    number(5) ,Adm _date    date      not null,Pat_name char(40),Pat_gender  char(3),Pat_ symptoms varchar(50),Pat_disease  varchar(50),Pat_lab    varchar(30) foreign key (s_no)references hospital_reception(s_no));
+Insert into dr_das values(1705,"12 dec 2017","Rahul purohit","M","cold fever" ,null,null);
+Insert into dr_das values(1704,14 dec 2017","Rahul","M","cold fever"," null,null);
+Insert into dr_das(s_no,Pat_name,Pat_gender,Pat_symptoms,adm_disease,Pat_lab);
+values(1709,"15 dec 2017","ziva","f","fever" ,null,null);
+		(1708,"15 dec 2017","ravi","M","black fever" ,null,null);
+Create table hospital_pharmacy(S_no  number(5),Pat_name  char(40),Pat_patientid   varchar(40),Pat_medicien   varchar(40), foreign key(s_no)references hospital_reception(s_no));
+Insert into hospital_pharmacy values(1701,"yash bohra ","tooth pain","advil");
+Insert into hospital_pharmacy values(1702,"rose"," toothpain","advil");
+Insert into hospital_pharmacy(s_no,Pat_name,Pat_patientid,Pet_medicien);
+values(1704,"Rahul","chest pain","asprin");
+		(1707,"manju","fever","paracetamol ");
+Create table hospital_ward(S_no number(5),Pat_name  char(40),Pat_age   number(3),Pat_mnumber    number(10),Pat_wardno    varchar(5),Pat_badno   varchar(4),Pat_admitby   varchar(40),Adm _date    date     not null,Pat_ symptoms   varchar(40),Pat_drvisite   varchar(30),Pat_status   varchar(40),foreign key(s_no)references hospital_reception(s_no));
+Insert into hospital_ward values(1712,"jyoti",23,2345678919,f 2,12 A, "dr bhawna", 12 dec 2017,"problem in breathing","dr pardeep" ,"now relief");
+Create table hospital_referral(S_no  number(5),Pat_name   char(40),Pat_disease   varchar(40),Pat_referredby   varchar(30),Pat_referredto    varchar(40),reff_date    date   not null,foreign key(s_no)references hospital_reception(s_no));
+Insert into hospital_referral values(1736,"Christy", "heart problem","dr das","mj hospital","19 dec 2017");
+Create table hospital_discharge(S_no   number(5),Pat_name    char(40),join_date     date     not null,disch_date     date   not null,foreign key(s_no)references hospital_reception(s_no));
+Insert into hospital_discharge values(1712,"jyoti","12 dec 2017", "12 dec 2017");
+Create table hospital_bill(S_no  number(5),Bill_no    number(5),Pat_name    char(40),Pat_disease    varchar(40),Dr_ch    number(5),Nusning_ch    number(5),Medicine_ch  number(5),Lab_ch   number(5),Room_ch   number(5),No_ofdays   varchar(20),Health_card     varchar(15),Advance_pay   varchar(10),Total_amount   number(10),foreign key(s_no)references hospital_reception(s_no));
+Insert into hospital_bill values(1702,4534,jyoti gahlot, respiratory infection,1500,500,1000,300,300,3,no,no,3600);
